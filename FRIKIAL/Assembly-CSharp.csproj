@@ -55,7 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Close_Button_Script.cs" />
+     <Compile Include="Assets\Scripts\Back_Button.cs" />
+     <Compile Include="Assets\Scripts\Main_Menu.cs" />
+     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
+     <Compile Include="Assets\Scripts\Settings_Menu.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
