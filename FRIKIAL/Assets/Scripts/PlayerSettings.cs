@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSettings : MonoBehaviour
 {
  
-    void changeprefs(string optioname, bool b)
+    void milibro(string optioname, bool b)
     {
         PlayerPrefs.SetString(optioname,b.ToString());
     }
