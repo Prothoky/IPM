@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Response_Result.cs" />
+    <Compile Include="Assets\Scripts\Answer.cs" />
     <Compile Include="Assets\Scripts\Back_Button.cs" />
     <Compile Include="Assets\Scripts\Main_Menu.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
