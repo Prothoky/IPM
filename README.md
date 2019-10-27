@@ -1,2 +1,2 @@
-# IPM
-Trabajo Iteración persona máquina
+# IPMU
+Trabajo Interacción persona-máquina y usabilidad.
