@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Back_Button
+    - BadeDatosHandler
     - Main_Menu
     - PlayerSettings
     Unity.2D.Tilemap.Editor.dll:
@@ -19,7 +20,6 @@ ScriptsOnlyBuild:
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -50,21 +50,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9692}
+      Script: {instanceID: 9694}
     - Class: 114
-      Script: {instanceID: 9854}
+      Script: {instanceID: 9856}
     - Class: 114
-      Script: {instanceID: 9896}
+      Script: {instanceID: 9898}
     - Class: 114
-      Script: {instanceID: 10298}
+      Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10442}
+      Script: {instanceID: 10444}
     - Class: 114
-      Script: {instanceID: 10680}
+      Script: {instanceID: 10682}
     - Class: 114
-      Script: {instanceID: 11180}
+      Script: {instanceID: 11186}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11586}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -97,25 +97,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9692}
+      Script: {instanceID: 9694}
     - Class: 114
-      Script: {instanceID: 9854}
+      Script: {instanceID: 9856}
     - Class: 114
-      Script: {instanceID: 9896}
+      Script: {instanceID: 9898}
     - Class: 114
-      Script: {instanceID: 10298}
+      Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10442}
+      Script: {instanceID: 10444}
     - Class: 114
-      Script: {instanceID: 10680}
+      Script: {instanceID: 10682}
     - Class: 114
-      Script: {instanceID: 10910}
+      Script: {instanceID: 10914}
     - Class: 114
-      Script: {instanceID: 11116}
+      Script: {instanceID: 11122}
     - Class: 114
-      Script: {instanceID: 11180}
+      Script: {instanceID: 11186}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11586}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -152,33 +152,35 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9692}
+      Script: {instanceID: 9694}
     - Class: 114
-      Script: {instanceID: 9854}
+      Script: {instanceID: 9856}
     - Class: 114
-      Script: {instanceID: 9896}
-    - Class: 114
-      Script: {instanceID: 10298}
+      Script: {instanceID: 9898}
     - Class: 114
       Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10322}
+      Script: {instanceID: 10302}
     - Class: 114
-      Script: {instanceID: 10680}
+      Script: {instanceID: 10324}
     - Class: 114
-      Script: {instanceID: 10878}
+      Script: {instanceID: 10682}
     - Class: 114
-      Script: {instanceID: 10910}
+      Script: {instanceID: 10880}
     - Class: 114
-      Script: {instanceID: 10924}
+      Script: {instanceID: 10914}
     - Class: 114
-      Script: {instanceID: 11180}
+      Script: {instanceID: 10928}
     - Class: 114
-      Script: {instanceID: 11362}
+      Script: {instanceID: 11094}
     - Class: 114
-      Script: {instanceID: 11476}
+      Script: {instanceID: 11186}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11370}
+    - Class: 114
+      Script: {instanceID: 11486}
+    - Class: 114
+      Script: {instanceID: 11586}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -211,21 +213,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9692}
+      Script: {instanceID: 9694}
     - Class: 114
-      Script: {instanceID: 9854}
+      Script: {instanceID: 9856}
     - Class: 114
-      Script: {instanceID: 9896}
+      Script: {instanceID: 9898}
     - Class: 114
-      Script: {instanceID: 10298}
+      Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10442}
+      Script: {instanceID: 10444}
     - Class: 114
-      Script: {instanceID: 10680}
+      Script: {instanceID: 10682}
     - Class: 114
-      Script: {instanceID: 11180}
+      Script: {instanceID: 11094}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11186}
+    - Class: 114
+      Script: {instanceID: 11586}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -258,31 +262,31 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9692}
+      Script: {instanceID: 9694}
     - Class: 114
-      Script: {instanceID: 9854}
+      Script: {instanceID: 9856}
     - Class: 114
-      Script: {instanceID: 9896}
+      Script: {instanceID: 9898}
     - Class: 114
-      Script: {instanceID: 10298}
+      Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10442}
+      Script: {instanceID: 10444}
     - Class: 114
-      Script: {instanceID: 10680}
+      Script: {instanceID: 10682}
     - Class: 114
-      Script: {instanceID: 10858}
+      Script: {instanceID: 10860}
     - Class: 114
-      Script: {instanceID: 10910}
+      Script: {instanceID: 10914}
     - Class: 114
-      Script: {instanceID: 11116}
+      Script: {instanceID: 11122}
     - Class: 114
-      Script: {instanceID: 11180}
+      Script: {instanceID: 11186}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11586}
     - Class: 114
-      Script: {instanceID: 11592}
+      Script: {instanceID: 11602}
     - Class: 114
-      Script: {instanceID: 11626}
+      Script: {instanceID: 11636}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -315,21 +319,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9692}
+      Script: {instanceID: 9694}
     - Class: 114
-      Script: {instanceID: 9854}
+      Script: {instanceID: 9856}
     - Class: 114
-      Script: {instanceID: 9896}
-    - Class: 114
-      Script: {instanceID: 10298}
+      Script: {instanceID: 9898}
     - Class: 114
       Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10680}
+      Script: {instanceID: 10302}
     - Class: 114
-      Script: {instanceID: 11180}
+      Script: {instanceID: 10682}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11186}
+    - Class: 114
+      Script: {instanceID: 11586}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -685,6 +689,12 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Response_Result
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro
     className: TMP_DigitValidator
   - hash:
@@ -767,6 +777,12 @@ ScriptsOnlyBuild:
     className: TMP_TextSelector_B
   - hash:
       serializedVersion: 2
+      Hash: 2f3f068e7853341667683d62d8534be9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BadeDatosHandler
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -813,6 +829,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: c9c75f6760b16d3911c23abab90ec60a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Answer
   - hash:
       serializedVersion: 2
       Hash: 4d16cfbaa8e821a2b370e80844a0e9bc
@@ -981,18 +1003,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Response_Result
-  - hash:
-      serializedVersion: 2
-      Hash: c9c75f6760b16d3911c23abab90ec60a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Answer
   platform: 13
   scenePathNames:
   - Assets/Scenes/LoginScene.unity
@@ -1001,4 +1011,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Friends.unity
   - Assets/Scenes/Ranking.unity
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/Proth/Documents/IPM/FRIKIAL/Builds/FRIKIAL00.apk
+  playerPath: C:/Users/Proth/Documents/IPMU/FRIKIAL/Builds/FRIKIAL01.apk
