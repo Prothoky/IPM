@@ -1,40 +1,72 @@
 { 
-	"BaseDatos": [
+	"ListOfPlayers":[ 
 		{
 			"id": 0,
 			"nombre": "Player1",
+			"psw": "",
 			"puntuacion": "1000",
 			"color": "Red",
+			"friend": true
 		},
 		{
 			"id": 1,
 			"nombre": "Player2",
+			"psw": "",
 			"puntuacion": "2000",
 			"color": "Blue",
+			"friend": false
 		},
 		{
-			"id": 1,
+			"id": 2,
 			"nombre": "Player3",
+			"psw": "",
 			"puntuacion": "3000",
 			"color": "Green",
+			"friend": true
 		},
 		{
 			"id": 3,
 			"nombre": "Player4",
+			"psw": "",
 			"puntuacion": "4000",
 			"color": "Yellow",
+			"friend": false
 		},
 		{
 			"id": 4,
 			"nombre": "Player5",
+			"psw": "",
 			"puntuacion": "5000",
 			"color": "Black",
+			"friend": true
 		},
 		{
 			"id": 5,
 			"nombre": "Player6",
+			"psw": "",
 			"puntuacion": "6000",
 			"color": "White",
+			"friend": false
+		}
+	],
+	"ListOfNormalQuestions" : [
+		{
+			"id":0,
+			"question": "¿Es la vida un juego o alguien juega con nuestra vida?",
+			"answerCorrect": "NO LO SE",
+			"answerA": "SI",
+			"answerB": "NO",
+			"answerC": "PUEDE"
+		}
+	],
+	"ListOfFireQuestions" : [
+		{
+			"id":0,
+			"question": "¿Esta pregunta es de disparar?",
+			"answerCorrect": "NO LO SE",
+			"answerA": "SI",
+			"answerB": "NO",
+			"answerC": "PUEDE"			
 		}
 	]
 }

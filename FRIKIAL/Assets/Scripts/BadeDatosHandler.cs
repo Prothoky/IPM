@@ -2,50 +2,145 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BadeDatosHandler : MonoBehaviour
 {
-    public BaseDatosObjeto bdfriends;
-    public BaseDatosObjeto bdglobal;
-    public BaseDatosObjeto bdtemp;
+    public BaseDatos bdglobal;
+    public List<Player> listofplayers;
+    public List<Player> listofplayersfriends;
+    public GameObject[] playerscores;
+    public GameObject[] inputs;
+    public List<Question> listofnormalquestions;
+    public List<Question> listoffirequestions;
+
+
+    //Menus
+    public GameObject Login_Fail;
+    public GameObject Register_Success;
+    public GameObject User_Existing;
+
 
     void Start()
     {
-        string datosfriends = File.ReadAllText(Application.dataPath + "/Resources/Friends.json");
         string datosglobal = File.ReadAllText(Application.dataPath + "/Resources/Global.json");
-        
-        bdfriends = JsonUtility.FromJson<BaseDatosObjeto>(datosfriends);
-        bdglobal = JsonUtility.FromJson<BaseDatosObjeto>(datosglobal);
+        bdglobal = JsonUtility.FromJson<BaseDatos>(datosglobal);
+        listofplayers = bdglobal.ListOfPlayers;
+        listofnormalquestions = bdglobal.ListOfNormalQuestions;
+        listoffirequestions = bdglobal.ListOfFireQuestions;
+        OrdenarObj(); 
+        SelectFriends();
+        playerscores = GameObject.FindGameObjectsWithTag("Scores");
+        inputs = GameObject.FindGameObjectsWithTag("Inputs");
+
+        Register_Success = GameObject.Find("Register Success");
+        User_Existing = GameObject.Find("User Existing");
+        Login_Fail = GameObject.Find("Login Fail");
+
+        Login_Fail.SetActive(false);
+        Register_Success.SetActive(false);
+        User_Existing.SetActive(false);
+
     }
 
     public void OrdenarObj()
     {
-        Objeto obj = null;
-        for (int i = 1; i < bdfriends.BaseDatos.Count; i++)
+        Player obj = null;
+
+        for (int a = 1; a < listofplayers.Count; a++)
         {
-            for (int j = 0; j < bdfriends.BaseDatos.Count - 1; j++)
+            for (int b = 0;b < listofplayers.Count; b++)
             {
-                if (bdfriends.BaseDatos[j].puntuacion > bdfriends.BaseDatos[j + 1].puntuacion)
+                if (listofplayers[b].puntuacion < listofplayers[a].puntuacion)
                 {
-                    obj = bdfriends.BaseDatos[j];
+                    obj = listofplayers[a];
+                    listofplayers[a] = listofplayers[b];
+                    listofplayers[b] = obj;
                 }
-                bdfriends.BaseDatos[j] = bdfriends.BaseDatos[j + 1];
-                bdfriends.BaseDatos[j + 1] = obj;
             }
-            //Debug.Log("Puntuación del Jugador: " + bdfriends.BaseDatos[i].nombre + " es de: " + bdfriends.BaseDatos[i].puntuacion);
         }
 
-        obj = null;
-        for (int i = 1; i < bdglobal.BaseDatos.Count; i++) {
-            for (int j = 0; j < bdglobal.BaseDatos.Count - 1; j++) {
-                if (bdglobal.BaseDatos[j].puntuacion > bdglobal.BaseDatos[j + 1].puntuacion)
-                {
-                    obj = bdglobal.BaseDatos[j];
-                }
-                bdglobal.BaseDatos[j] = bdglobal.BaseDatos[j + 1];
-                bdglobal.BaseDatos[j + 1] = obj;
+    }
+
+    public void ShowFriends()
+    {        
+        Text[] texts;
+        
+        Debug.Log(listofplayersfriends.Count);
+
+        for (int i = 0; i < playerscores.Length; i++){ 
+            if (i < listofplayersfriends.Count){
+                    texts = playerscores[i].GetComponentsInChildren<Text>();
+                    texts[0].text = listofplayersfriends[i].nombre;
+                    texts[1].text = listofplayersfriends[i].puntuacion.ToString();
+             }
+            else
+            {
+                playerscores[i].SetActive(false);
             }
-            Debug.Log("Puntuación del Jugador: " + bdglobal.BaseDatos[i].nombre + " es de: " + bdglobal.BaseDatos[i].puntuacion);
         }
     }
+
+    public void ShowGlobal()
+    {
+        Text[] texts;
+        Debug.Log(playerscores.Length);
+        for (int i = 0; i < playerscores.Length; i++)
+        {
+            playerscores[i].SetActive(true);
+            texts = playerscores[i].GetComponentsInChildren<UnityEngine.UI.Text>();
+            texts[0].text = listofplayers[i].nombre;
+            texts[1].text = listofplayers[i].puntuacion.ToString();
+        }
+    }
+
+    public void SelectFriends()
+    {
+        foreach(Player p in listofplayers)
+        {
+            if (p.friend == true) listofplayersfriends.Add(p);
+        }
+    }
+
+    public void RegisterUser()
+    {
+        bool exist = false;
+        for(int i = 0; i < listofplayers.Count; i++)
+        {
+            if (listofplayers[i].nombre == inputs[0].GetComponentInChildren<Text>().text) {
+                exist=true;
+            }
+        }
+        if (exist)
+        {
+            User_Existing.SetActive(true);
+        }
+        else
+        {
+           Register_Success.SetActive(true);            
+        }
+    }
+
+    public void VerifyUser()
+    {
+        bool correct = false;
+        for (int i = 0; i < listofplayers.Count; i++)
+        {
+            if (listofplayers[i].nombre == inputs[0].GetComponentInChildren<Text>().text && listofplayers[i].psw == inputs[1].GetComponentInChildren<Text>().text)
+            {
+                correct = true;
+            }
+        }
+        if (correct)
+        {
+            SceneManager.LoadScene("StartScene");
+        }
+        else
+        {
+            Login_Fail.SetActive(true);
+        }
+
+    }
+
 }

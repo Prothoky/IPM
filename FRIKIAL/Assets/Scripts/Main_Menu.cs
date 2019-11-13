@@ -16,6 +16,25 @@ public class Main_Menu : MonoBehaviour
         SceneManager.LoadScene(scenename);
     }
 
+    public void popupregister()
+    {
+        GameObject.Find("Register Success").SetActive(true);
+    }
+
+    public void registerfail()
+    {
+        GameObject.Find("User Existing").SetActive(true);
+    }
+
+    public void closeregisterfail()
+    {
+        GameObject.Find("User Existing").SetActive(false);
+    }
+    public void closeloginfail()
+    {
+        GameObject.Find("Login Fail").SetActive(false);
+    }
+
     public void closeapp()
     {
     #if UNITY_EDITOR
