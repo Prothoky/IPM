@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Response_Result.cs" />
+    <Compile Include="Assets\Scripts\AlertasLogin.cs" />
     <Compile Include="Assets\Scripts\Answer.cs" />
     <Compile Include="Assets\Scripts\Back_Button.cs" />
     <Compile Include="Assets\Scripts\BadeDatosHandler.cs" />

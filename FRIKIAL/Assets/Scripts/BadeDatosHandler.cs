@@ -34,14 +34,6 @@ public class BadeDatosHandler : MonoBehaviour
         playerscores = GameObject.FindGameObjectsWithTag("Scores");
         inputs = GameObject.FindGameObjectsWithTag("Inputs");
 
-        Register_Success = GameObject.Find("Register Success");
-        User_Existing = GameObject.Find("User Existing");
-        Login_Fail = GameObject.Find("Login Fail");
-
-        Login_Fail.SetActive(false);
-        Register_Success.SetActive(false);
-        User_Existing.SetActive(false);
-
     }
 
     public void OrdenarObj()
@@ -106,19 +98,22 @@ public class BadeDatosHandler : MonoBehaviour
     public void RegisterUser()
     {
         bool exist = false;
-        for(int i = 0; i < listofplayers.Count; i++)
+        for (int i = 0; i < listofplayers.Count; i++)
         {
             if (listofplayers[i].nombre == inputs[0].GetComponentInChildren<Text>().text) {
                 exist=true;
             }
         }
+        Debug.Log(exist);
         if (exist)
         {
             User_Existing.SetActive(true);
         }
         else
         {
-           Register_Success.SetActive(true);            
+            Debug.Log("GO");
+            SaveNewUser();
+           Register_Success.SetActive(true);
         }
     }
 
@@ -142,5 +137,12 @@ public class BadeDatosHandler : MonoBehaviour
         }
 
     }
-
+    public void SaveNewUser()
+    {
+        Player player = new Player(inputs[0].GetComponentInChildren<Text>().text, inputs[1].GetComponentInChildren<Text>().text);
+        listofplayers.Add(player);
+        bdglobal.ListOfPlayers = listofplayers;
+        string json = JsonUtility.ToJson(bdglobal,true);
+        File.WriteAllText(Application.dataPath + "/Resources/Global.json",json);
+    }
 }

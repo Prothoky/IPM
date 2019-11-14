@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AlertasLogin
     - Back_Button
     - BadeDatosHandler
     - Main_Menu
@@ -20,6 +21,7 @@ ScriptsOnlyBuild:
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -181,6 +183,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11486}
     - Class: 114
       Script: {instanceID: 11586}
+    - Class: 114
+      Script: {instanceID: 13938}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -777,7 +781,7 @@ ScriptsOnlyBuild:
     className: TMP_TextSelector_B
   - hash:
       serializedVersion: 2
-      Hash: 2f3f068e7853341667683d62d8534be9
+      Hash: be44122027d563a634f940125d30c541
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BadeDatosHandler
@@ -1003,6 +1007,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 9f54e90afea28775ebea5ef289593867
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AlertasLogin
   platform: 13
   scenePathNames:
   - Assets/Scenes/LoginScene.unity

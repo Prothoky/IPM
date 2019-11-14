@@ -5,12 +5,20 @@ using UnityEngine;
 [System.Serializable]
 public class Player
 {
-    public int id;
     public string nombre;
     public string psw;
     public int puntuacion;
     public string color;
     public bool friend;
+
+    public Player(string n, string p)
+    {
+        nombre = n;
+        psw = p;
+        puntuacion = 0;
+        color = "White";
+        friend = false;
+    }
 }
 
 public class Question

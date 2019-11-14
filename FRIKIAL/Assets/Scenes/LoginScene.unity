@@ -721,9 +721,9 @@ MonoBehaviour:
   listofplayersfriends: []
   playerscores: []
   inputs: []
-  Login_Fail: {fileID: 0}
-  Register_Success: {fileID: 0}
-  User_Existing: {fileID: 0}
+  Login_Fail: {fileID: 1395095988}
+  Register_Success: {fileID: 887389630}
+  User_Existing: {fileID: 621674739}
 --- !u!1 &455753357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,13 +1017,14 @@ GameObject:
   - component: {fileID: 621674740}
   - component: {fileID: 621674742}
   - component: {fileID: 621674741}
+  - component: {fileID: 621674743}
   m_Layer: 5
   m_Name: User Existing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &621674740
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1081,6 +1082,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621674739}
   m_CullTransparentMesh: 1
+--- !u!114 &621674743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621674739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc997fe611abf374692abc05d98a1434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 621674739}
 --- !u!1 &756200943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,8 +1176,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1582304228}
-        m_MethodName: closeloginfail
+      - m_Target: {fileID: 1395095992}
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1293,13 +1307,14 @@ GameObject:
   - component: {fileID: 887389631}
   - component: {fileID: 887389633}
   - component: {fileID: 887389632}
+  - component: {fileID: 887389634}
   m_Layer: 5
   m_Name: Register Success
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &887389631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1357,6 +1372,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887389630}
   m_CullTransparentMesh: 1
+--- !u!114 &887389634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887389630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc997fe611abf374692abc05d98a1434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 887389630}
 --- !u!1 &895048028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,13 +2234,14 @@ GameObject:
   - component: {fileID: 1395095989}
   - component: {fileID: 1395095991}
   - component: {fileID: 1395095990}
+  - component: {fileID: 1395095992}
   m_Layer: 5
   m_Name: Login Fail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1395095989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2270,6 +2299,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395095988}
   m_CullTransparentMesh: 1
+--- !u!114 &1395095992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395095988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc997fe611abf374692abc05d98a1434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel: {fileID: 1395095988}
 --- !u!1 &1561456132
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,8 +3128,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1582304228}
-        m_MethodName: closeregisterfail
+      - m_Target: {fileID: 621674743}
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

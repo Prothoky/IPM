@@ -1,7 +1,6 @@
 { 
 	"ListOfPlayers":[ 
 		{
-			"id": 0,
 			"nombre": "Player1",
 			"psw": "",
 			"puntuacion": "1000",
@@ -9,7 +8,6 @@
 			"friend": true
 		},
 		{
-			"id": 1,
 			"nombre": "Player2",
 			"psw": "",
 			"puntuacion": "2000",
@@ -17,7 +15,6 @@
 			"friend": false
 		},
 		{
-			"id": 2,
 			"nombre": "Player3",
 			"psw": "",
 			"puntuacion": "3000",
@@ -25,7 +22,6 @@
 			"friend": true
 		},
 		{
-			"id": 3,
 			"nombre": "Player4",
 			"psw": "",
 			"puntuacion": "4000",
@@ -33,7 +29,6 @@
 			"friend": false
 		},
 		{
-			"id": 4,
 			"nombre": "Player5",
 			"psw": "",
 			"puntuacion": "5000",
@@ -41,7 +36,6 @@
 			"friend": true
 		},
 		{
-			"id": 5,
 			"nombre": "Player6",
 			"psw": "",
 			"puntuacion": "6000",
