@@ -43,7 +43,7 @@
 			"friend": false
 		}
 	],
-	"ListOfNormalQuestions" : [
+	"ListOfNormalQuestions":[
 		{
 			"id":0,
 			"question": "¿Es la vida un juego o alguien juega con nuestra vida?",
@@ -53,7 +53,7 @@
 			"answerC": "PUEDE"
 		}
 	],
-	"ListOfFireQuestions" : [
+	"ListOfFireQuestions":[
 		{
 			"id":0,
 			"question": "¿Esta pregunta es de disparar?",

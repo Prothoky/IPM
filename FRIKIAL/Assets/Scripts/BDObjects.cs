@@ -21,16 +21,16 @@ public class Player
     }
 }
 
+[System.Serializable]
 public class Question
 {
     public int id;
-    public string question;			
+    public string question;
     public string answerCorrect;
 	public string answerA;
     public string answerB;
     public string answerC;
 }
-
 
 [System.Serializable]
 public class BaseDatos

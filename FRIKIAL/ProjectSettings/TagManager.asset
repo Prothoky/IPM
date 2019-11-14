@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Scores
   - Inputs
+  - Settings
   layers:
   - Default
   - TransparentFX

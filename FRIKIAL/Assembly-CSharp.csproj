@@ -64,13 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Response_Result.cs" />
-    <Compile Include="Assets\Scripts\AlertasLogin.cs" />
     <Compile Include="Assets\Scripts\Answer.cs" />
-    <Compile Include="Assets\Scripts\Back_Button.cs" />
     <Compile Include="Assets\Scripts\BadeDatosHandler.cs" />
     <Compile Include="Assets\Scripts\BDObjects.cs" />
-    <Compile Include="Assets\Scripts\Main_Menu.cs" />
+    <Compile Include="Assets\Scripts\ButtonFunctions.cs" />
     <Compile Include="Assets\Scripts\PlayerSettings.cs" />
+    <Compile Include="Assets\Scripts\Settings.cs" />
     <Compile Include="Assets\Scripts\Settings_Menu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

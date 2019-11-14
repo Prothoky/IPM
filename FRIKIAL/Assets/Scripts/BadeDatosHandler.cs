@@ -7,33 +7,36 @@ using UnityEngine.SceneManagement;
 
 public class BadeDatosHandler : MonoBehaviour
 {
-    public BaseDatos bdglobal;
+    public BaseDatos bd;
     public List<Player> listofplayers;
     public List<Player> listofplayersfriends;
-    public GameObject[] playerscores;
-    public GameObject[] inputs;
     public List<Question> listofnormalquestions;
     public List<Question> listoffirequestions;
+    public GameObject[] playerscores;
+    public GameObject[] inputs;
 
 
     //Menus
     public GameObject Login_Fail;
     public GameObject Register_Success;
     public GameObject User_Existing;
+    public GameObject UserDoesNotExist;
+    public GameObject Add_Success;
+    public GameObject Erase_Success;
 
 
     void Start()
     {
         string datosglobal = File.ReadAllText(Application.dataPath + "/Resources/Global.json");
-        bdglobal = JsonUtility.FromJson<BaseDatos>(datosglobal);
-        listofplayers = bdglobal.ListOfPlayers;
-        listofnormalquestions = bdglobal.ListOfNormalQuestions;
-        listoffirequestions = bdglobal.ListOfFireQuestions;
+        bd = JsonUtility.FromJson<BaseDatos>(datosglobal);
+        listofplayers = bd.ListOfPlayers;
+        listofnormalquestions = bd.ListOfNormalQuestions;
+        listoffirequestions = bd.ListOfFireQuestions;
         OrdenarObj(); 
         SelectFriends();
         playerscores = GameObject.FindGameObjectsWithTag("Scores");
         inputs = GameObject.FindGameObjectsWithTag("Inputs");
-
+        ShowFriends();
     }
 
     public void OrdenarObj()
@@ -56,17 +59,15 @@ public class BadeDatosHandler : MonoBehaviour
     }
 
     public void ShowFriends()
-    {        
+    {
         Text[] texts;
-        
-        Debug.Log(listofplayersfriends.Count);
-
         for (int i = 0; i < playerscores.Length; i++){ 
             if (i < listofplayersfriends.Count){
                     texts = playerscores[i].GetComponentsInChildren<Text>();
                     texts[0].text = listofplayersfriends[i].nombre;
                     texts[1].text = listofplayersfriends[i].puntuacion.ToString();
-             }
+                    playerscores[i].SetActive(true);
+            }
             else
             {
                 playerscores[i].SetActive(false);
@@ -77,11 +78,10 @@ public class BadeDatosHandler : MonoBehaviour
     public void ShowGlobal()
     {
         Text[] texts;
-        Debug.Log(playerscores.Length);
         for (int i = 0; i < playerscores.Length; i++)
         {
             playerscores[i].SetActive(true);
-            texts = playerscores[i].GetComponentsInChildren<UnityEngine.UI.Text>();
+            texts = playerscores[i].GetComponentsInChildren<Text>();
             texts[0].text = listofplayers[i].nombre;
             texts[1].text = listofplayers[i].puntuacion.ToString();
         }
@@ -89,6 +89,7 @@ public class BadeDatosHandler : MonoBehaviour
 
     public void SelectFriends()
     {
+        listofplayersfriends.Clear();
         foreach(Player p in listofplayers)
         {
             if (p.friend == true) listofplayersfriends.Add(p);
@@ -104,16 +105,14 @@ public class BadeDatosHandler : MonoBehaviour
                 exist=true;
             }
         }
-        Debug.Log(exist);
         if (exist)
         {
             User_Existing.SetActive(true);
         }
         else
         {
-            Debug.Log("GO");
             SaveNewUser();
-           Register_Success.SetActive(true);
+            Register_Success.SetActive(true);
         }
     }
 
@@ -129,6 +128,8 @@ public class BadeDatosHandler : MonoBehaviour
         }
         if (correct)
         {
+
+            PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("StartScene");
         }
         else
@@ -141,8 +142,70 @@ public class BadeDatosHandler : MonoBehaviour
     {
         Player player = new Player(inputs[0].GetComponentInChildren<Text>().text, inputs[1].GetComponentInChildren<Text>().text);
         listofplayers.Add(player);
-        bdglobal.ListOfPlayers = listofplayers;
-        string json = JsonUtility.ToJson(bdglobal,true);
-        File.WriteAllText(Application.dataPath + "/Resources/Global.json",json);
+        UpdateJson();
+    }
+
+    public void AddFriend()
+    {
+        inputs = GameObject.FindGameObjectsWithTag("Inputs");
+        bool modify = false;
+        for (int i = 0; i < listofplayers.Count; i++)
+        {
+            if (listofplayers[i].nombre == inputs[0].GetComponentInChildren<Text>().text)
+            {
+                if (listofplayers[i].friend != true)
+                {
+                    listofplayers[i].friend = true;
+                    modify = true;
+                }
+            }
+        }
+        if (modify)
+        {
+            UpdateJson();
+            SelectFriends();
+            ShowFriends();
+            Add_Success.SetActive(true);
+        }
+        else
+        {
+            UserDoesNotExist.SetActive(true);
+        }
+    }
+
+    public void EraseFriend()
+    {
+        inputs = GameObject.FindGameObjectsWithTag("Inputs");
+        bool modify = false;
+        for (int i = 0; i < listofplayers.Count; i++)
+        {
+            if (listofplayers[i].nombre == inputs[0].GetComponentInChildren<Text>().text)
+            {
+                if (listofplayers[i].friend != false)
+                {
+                    listofplayers[i].friend = false;
+                    modify = true;
+                }
+            }
+        }
+        if (modify)
+        {
+            UpdateJson();
+            SelectFriends();
+            ShowFriends();
+            Debug.Log("DONE");
+            Erase_Success.SetActive(true);
+        }
+        else
+        {
+            UserDoesNotExist.SetActive(true);
+        }
+    }
+
+    public void UpdateJson()
+    {
+        bd.ListOfPlayers = listofplayers;
+        string json = JsonUtility.ToJson(bd, true);
+        File.WriteAllText(Application.dataPath + "/Resources/Global.json", json);
     }
 }

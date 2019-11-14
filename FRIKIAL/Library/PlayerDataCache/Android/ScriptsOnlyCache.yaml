@@ -1,10 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - AlertasLogin
-    - Back_Button
     - BadeDatosHandler
-    - Main_Menu
+    - ButtonFunctions
     - PlayerSettings
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
@@ -60,13 +58,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10444}
+      Script: {instanceID: 10684}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 10882}
     - Class: 114
-      Script: {instanceID: 11186}
+      Script: {instanceID: 11096}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11188}
+    - Class: 114
+      Script: {instanceID: 11588}
+    - Class: 114
+      Script: {instanceID: 27684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -107,17 +109,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10444}
+      Script: {instanceID: 10684}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 10916}
     - Class: 114
-      Script: {instanceID: 10914}
+      Script: {instanceID: 11124}
     - Class: 114
-      Script: {instanceID: 11122}
+      Script: {instanceID: 11188}
     - Class: 114
-      Script: {instanceID: 11186}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 27684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -162,29 +164,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10302}
-    - Class: 114
       Script: {instanceID: 10324}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 10684}
     - Class: 114
-      Script: {instanceID: 10880}
+      Script: {instanceID: 10882}
     - Class: 114
-      Script: {instanceID: 10914}
+      Script: {instanceID: 10916}
     - Class: 114
-      Script: {instanceID: 10928}
+      Script: {instanceID: 10930}
     - Class: 114
-      Script: {instanceID: 11094}
+      Script: {instanceID: 11096}
     - Class: 114
-      Script: {instanceID: 11186}
+      Script: {instanceID: 11188}
     - Class: 114
-      Script: {instanceID: 11370}
+      Script: {instanceID: 11372}
     - Class: 114
-      Script: {instanceID: 11486}
+      Script: {instanceID: 11488}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 13938}
+      Script: {instanceID: 27684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -225,18 +225,57 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10444}
+      Script: {instanceID: 10684}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 11096}
     - Class: 114
-      Script: {instanceID: 11094}
+      Script: {instanceID: 11188}
     - Class: 114
-      Script: {instanceID: 11186}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 27684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/SelectGameMode.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9694}
+    - Class: 114
+      Script: {instanceID: 9898}
+    - Class: 114
+      Script: {instanceID: 10300}
+    - Class: 114
+      Script: {instanceID: 10684}
+    - Class: 114
+      Script: {instanceID: 11188}
+    - Class: 114
+      Script: {instanceID: 11588}
+    - Class: 114
+      Script: {instanceID: 27684}
+    - Class: 115
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -274,23 +313,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10444}
+      Script: {instanceID: 10684}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 10862}
     - Class: 114
-      Script: {instanceID: 10860}
+      Script: {instanceID: 10916}
     - Class: 114
-      Script: {instanceID: 10914}
+      Script: {instanceID: 11124}
     - Class: 114
-      Script: {instanceID: 11122}
+      Script: {instanceID: 11188}
     - Class: 114
-      Script: {instanceID: 11186}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11604}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11638}
     - Class: 114
-      Script: {instanceID: 11636}
+      Script: {instanceID: 27684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -331,13 +370,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10300}
     - Class: 114
-      Script: {instanceID: 10302}
+      Script: {instanceID: 10684}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 11188}
     - Class: 114
-      Script: {instanceID: 11186}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 27684}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -535,12 +574,6 @@ ScriptsOnlyBuild:
     className: EventSystem
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Main_Menu
-  - hash:
-      serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -581,12 +614,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: Benchmark01
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Back_Button
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -781,7 +808,7 @@ ScriptsOnlyBuild:
     className: TMP_TextSelector_B
   - hash:
       serializedVersion: 2
-      Hash: be44122027d563a634f940125d30c541
+      Hash: 7d5b758c39cfe46254072f25a070cd0a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BadeDatosHandler
@@ -1009,10 +1036,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 9f54e90afea28775ebea5ef289593867
+      Hash: 235a1e8275c5d1ab2a1c0f017d90e1b5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: AlertasLogin
+    className: ButtonFunctions
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Settings
   platform: 13
   scenePathNames:
   - Assets/Scenes/LoginScene.unity
@@ -1021,4 +1054,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Friends.unity
   - Assets/Scenes/Ranking.unity
   - Assets/Scenes/GameScene.unity
+  - Assets/Scenes/SelectGameMode.unity
   playerPath: C:/Users/Proth/Documents/IPMU/FRIKIAL/Builds/FRIKIAL01.apk
