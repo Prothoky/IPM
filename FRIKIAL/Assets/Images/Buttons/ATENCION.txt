@@ -1,0 +1,5 @@
+Quedan por modificar:
+	· Botones del menu Amigos
+	· Botones de las pantallas de juego
+	· Botones Del menu Jugar
+	· Botones del menu Principal

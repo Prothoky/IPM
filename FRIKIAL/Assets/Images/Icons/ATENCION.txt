@@ -1,0 +1,4 @@
+Quedan por modificar:
+	· Iconos de ventana de juego.
+	· Iconos menu Jugar
+	

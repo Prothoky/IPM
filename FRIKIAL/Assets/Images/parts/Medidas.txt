@@ -2,7 +2,7 @@ ALTURA  GRAN HEXA - 330 pixeles
 ANCHURA GRAN HEXA - 382 pixeles
 
 PIEZA		- ALTURA- ANCHURA
-GAME TOTAL	- 1920	- 1080 !!!!!!! EDITADO 2160->1920
+GAME AHORA	- 1920	- 1080
 GRAN HEXA	- 330	- 380
 HEXA+JUGAR	- 329	- 832
 SALIR+HEXA	- 296	- 748
@@ -12,3 +12,25 @@ ASISTENTE	- 328	- 1071
 NAVE LIL RADAR	- 200	- 192
 PREGUNTAS	- 399	- 1067
 RESPUESTA	- 515	- 515
+VENTANA opciones- 1364	- 1080
+VENTANA inferior- 1095	- 1080
+CORRECTO/ERROR	- 328	- 787
+ROTULO SECCION	- 328	- 785
+ROTULO SECUNDARI- 165	- 651
+WIN/LOOSER	- 485	- 832
+Pestaña Amigos	- 162	- 675
+Pestaña Global	- 162	- 531
+OK&X		- 165	- 369
+Guardar/Cancelar- 
+Ventanas Opc	- 1658	- 1080
+Ventanas Fin	- 1579	- 1080
+Stats Valor	- 165	- 165
+Ranking-Gente	- 165	- 985
+Ranking-Avatar	- 165	- 394
+Ranking-Text	- 165	- 702
+
+
+"ANTES"
+GAME ANTES	- 2160	- 1080
+OK&X/"Avatar" 	- 198	- 399
+     ranking
