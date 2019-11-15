@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonFunctions : MonoBehaviour
 {
     public GameObject panel;
-    
+
     private void Start()
     {
         if (panel != null)
@@ -28,7 +28,7 @@ public class ButtonFunctions : MonoBehaviour
 
     public void OpenPanel()
     {
-        Debug.Log("OPEN: " + panel.name);
+        panel.SetActive(true);
     }
 
     public void ClosePanel()

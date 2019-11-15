@@ -4,17 +4,21 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class BadeDatosHandler : MonoBehaviour
 {
     public BaseDatos bd;
-    public List<Player> listofplayers;
-    public List<Player> listofplayersfriends;
+    public List<User> listofplayers;
+    public List<User> listofplayersfriends;
     public List<Question> listofnormalquestions;
     public List<Question> listoffirequestions;
     public GameObject[] playerscores;
     public GameObject[] inputs;
-
+    public GameObject[] answers;
+    public GameObject question;
+    public List<int> questionsshowed;
+    private int nq;
 
     //Menus
     public GameObject Login_Fail;
@@ -23,6 +27,9 @@ public class BadeDatosHandler : MonoBehaviour
     public GameObject UserDoesNotExist;
     public GameObject Add_Success;
     public GameObject Erase_Success;
+    //Juego
+    public GameObject panelCORRECT;
+    public GameObject panelWRONG;
 
 
     void Start()
@@ -32,16 +39,30 @@ public class BadeDatosHandler : MonoBehaviour
         listofplayers = bd.ListOfPlayers;
         listofnormalquestions = bd.ListOfNormalQuestions;
         listoffirequestions = bd.ListOfFireQuestions;
-        OrdenarObj(); 
-        SelectFriends();
-        playerscores = GameObject.FindGameObjectsWithTag("Scores");
-        inputs = GameObject.FindGameObjectsWithTag("Inputs");
-        ShowFriends();
+
+        if (SceneManager.GetActiveScene().name == "Friends" || SceneManager.GetActiveScene().name == "Ranking")
+        {
+            OrdenarObj(); 
+            SelectFriends();
+            playerscores = GameObject.FindGameObjectsWithTag("Scores");
+            inputs = GameObject.FindGameObjectsWithTag("Inputs");
+            ShowFriends();
+        }
+
+        if (SceneManager.GetActiveScene().name == "GameScene")
+        {
+            ShowQuestion();
+            panelCORRECT = GameObject.FindGameObjectWithTag("CORRECT");
+            panelWRONG = GameObject.FindGameObjectWithTag("WRONG");
+            ClosePanel();
+        }
+
+
     }
 
     public void OrdenarObj()
     {
-        Player obj = null;
+        User obj = null;
 
         for (int a = 1; a < listofplayers.Count; a++)
         {
@@ -90,7 +111,7 @@ public class BadeDatosHandler : MonoBehaviour
     public void SelectFriends()
     {
         listofplayersfriends.Clear();
-        foreach(Player p in listofplayers)
+        foreach(User p in listofplayers)
         {
             if (p.friend == true) listofplayersfriends.Add(p);
         }
@@ -140,7 +161,7 @@ public class BadeDatosHandler : MonoBehaviour
     }
     public void SaveNewUser()
     {
-        Player player = new Player(inputs[0].GetComponentInChildren<Text>().text, inputs[1].GetComponentInChildren<Text>().text);
+        User player = new User(inputs[0].GetComponentInChildren<Text>().text, inputs[1].GetComponentInChildren<Text>().text);
         listofplayers.Add(player);
         UpdateJson();
     }
@@ -165,6 +186,7 @@ public class BadeDatosHandler : MonoBehaviour
             UpdateJson();
             SelectFriends();
             ShowFriends();
+            Add_Success.SetActive(true);
             Add_Success.SetActive(true);
         }
         else
@@ -193,7 +215,6 @@ public class BadeDatosHandler : MonoBehaviour
             UpdateJson();
             SelectFriends();
             ShowFriends();
-            Debug.Log("DONE");
             Erase_Success.SetActive(true);
         }
         else
@@ -207,5 +228,88 @@ public class BadeDatosHandler : MonoBehaviour
         bd.ListOfPlayers = listofplayers;
         string json = JsonUtility.ToJson(bd, true);
         File.WriteAllText(Application.dataPath + "/Resources/Global.json", json);
+    }
+
+    public void ShowQuestion()
+    {
+        nq = Random.Range(0, listofnormalquestions.Count);
+        if (questionsshowed.Count != listofnormalquestions.Count)
+        {
+            while (questionsshowed.Contains(nq))
+            {
+                nq = Random.Range(0, listofnormalquestions.Count);
+            }
+            questionsshowed.Add(nq);
+
+
+            question = GameObject.FindGameObjectWithTag("Question");
+            answers = GameObject.FindGameObjectsWithTag("Answers");
+
+            int[] options = new int[4];
+
+            int index = Random.Range(0, 4);
+            for (int i= 0; i < 4; i++)
+            {
+                options[i] = index;
+                if (index < 3) index++; else index=0;
+            }
+
+
+            answers[options[0]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerA;
+            answers[options[1]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerB;
+            answers[options[2]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerC;
+            answers[options[3]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerCorrect;
+
+            question.GetComponent<Text>().text = listofnormalquestions[nq].question;
+        }
+        else
+        {
+            Debug.Log("FIN DE BD DE PREGUNTAS");
+        }
+    }
+
+    public void CheckAnswer(Button button)
+    {
+        if (button.name == "Button A" && button.GetComponentInChildren<Text>().text == listofnormalquestions[nq].answerCorrect)
+        {
+            ShowCorrect(button);
+        }
+        else if (button.name == "Button C" && button.GetComponentInChildren<Text>().text == listofnormalquestions[nq].answerCorrect)
+        {
+            ShowCorrect(button);
+        }
+        else if (button.name == "Button B" && button.GetComponentInChildren<Text>().text == listofnormalquestions[nq].answerCorrect)
+        {
+            ShowCorrect(button);
+        }
+        else if (button.name == "Button D" && button.GetComponentInChildren<Text>().text == listofnormalquestions[nq].answerCorrect)
+        {
+            ShowCorrect(button);
+        }
+        else
+        {
+            Debug.Log("Respuesta INCORRECTA");
+            panelWRONG.SetActive(true);
+        }
+        ShowQuestion();
+        StartCoroutine("Limpiar",button);
+    }
+
+    public void ShowCorrect(Button button)
+    { 
+        Debug.Log("Respuesta CORRECTA");
+        panelCORRECT.SetActive(true);
+    }
+
+    public void ClosePanel()
+    {
+        panelCORRECT.SetActive(false);
+        panelWRONG.SetActive(false);
+    }
+
+    IEnumerator Limpiar(Button button)
+    {
+        yield return new WaitForSeconds(1);
+        ClosePanel();
     }
 }

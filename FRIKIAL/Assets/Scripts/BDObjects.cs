@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Player
+public class User
 {
     public string nombre;
     public string psw;
@@ -11,7 +11,7 @@ public class Player
     public string color;
     public bool friend;
 
-    public Player(string n, string p)
+    public User(string n, string p)
     {
         nombre = n;
         psw = p;
@@ -24,7 +24,6 @@ public class Player
 [System.Serializable]
 public class Question
 {
-    public int id;
     public string question;
     public string answerCorrect;
 	public string answerA;
@@ -35,7 +34,7 @@ public class Question
 [System.Serializable]
 public class BaseDatos
 {
-    public List<Player> ListOfPlayers;
+    public List<User> ListOfPlayers;
     public List<Question> ListOfNormalQuestions;
     public List<Question> ListOfFireQuestions;
 }

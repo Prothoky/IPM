@@ -7,6 +7,10 @@ TagManager:
   - Scores
   - Inputs
   - Settings
+  - Answers
+  - Question
+  - CORRECT
+  - WRONG
   layers:
   - Default
   - TransparentFX
