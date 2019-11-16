@@ -1,4 +1,1 @@
-Quedan por modificar:
-	· VentanaInferior.png
-	· VentanaMapaGrande.png
-	· VentanaMapaPequeño.png
+· VentanaInferior.png  - Descartado, ahora cada menu tiene ventana propia
