@@ -11,6 +11,11 @@ TagManager:
   - Question
   - CORRECT
   - WRONG
+  - Lab
+  - Enemy
+  - Aly
+  - MinMap
+  - MaxMap
   layers:
   - Default
   - TransparentFX
