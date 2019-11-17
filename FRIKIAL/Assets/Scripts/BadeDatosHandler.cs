@@ -40,6 +40,9 @@ public class BadeDatosHandler : MonoBehaviour
         listofnormalquestions = bd.ListOfNormalQuestions;
         listoffirequestions = bd.ListOfFireQuestions;
 
+        if(SceneManager.GetActiveScene().name == "LoginScene") {
+            inputs = GameObject.FindGameObjectsWithTag("Inputs");
+        }
         if (SceneManager.GetActiveScene().name == "Friends" || SceneManager.GetActiveScene().name == "Ranking")
         {
             OrdenarObj(); 
