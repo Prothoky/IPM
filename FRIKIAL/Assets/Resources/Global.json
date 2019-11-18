@@ -41,6 +41,13 @@
             "puntuacion": 1000,
             "color": "Red",
             "friend": true
+        },
+        {
+            "nombre": "",
+            "psw": "",
+            "puntuacion": 0,
+            "color": "White",
+            "friend": false
         }
     ],
     "ListOfNormalQuestions": [

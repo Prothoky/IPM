@@ -27,10 +27,11 @@ public class BaseDatosHandler : MonoBehaviour
     private int firetime = 0;
 
     //Menus
-    public GameObject Login_Fail;
+    public GameObject UserDoesNotExist;
     public GameObject Register_Success;
     public GameObject User_Existing;
-    public GameObject UserDoesNotExist;
+    public GameObject UserNotFound;
+    public GameObject PassworIncorrect;
     public GameObject Add_Success;
     public GameObject Erase_Success;
     public GameObject PreguntaDificl;
@@ -207,23 +208,31 @@ public class BaseDatosHandler : MonoBehaviour
 
     public void VerifyUser()
     {
-        bool correct = false;
+        bool usercorrect = false;
+        bool passwordcorrect = false;
         for (int i = 0; i < listofplayers.Count; i++)
         {
-            if (listofplayers[i].nombre == inputs[0].GetComponentInChildren<Text>().text && listofplayers[i].psw == inputs[1].GetComponentInChildren<Text>().text)
+            if (listofplayers[i].nombre == inputs[0].GetComponentInChildren<Text>().text)
             {
-                correct = true;
+                usercorrect = true;
+            }
+            if(listofplayers[i].psw == inputs[1].GetComponentInChildren<Text>().text)
+            {
+                passwordcorrect = true;
             }
         }
-        if (correct)
+        if (usercorrect && passwordcorrect)
         {
-
             PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("StartScene");
         }
+        else if (!usercorrect)
+        {
+            UserDoesNotExist.SetActive(true);
+        }
         else
         {
-            Login_Fail.SetActive(true);
+            PassworIncorrect.SetActive(true);
         }
 
     }
