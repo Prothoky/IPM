@@ -18,7 +18,11 @@ public class BadeDatosHandler : MonoBehaviour
     public GameObject[] answers;
     public GameObject question;
     public List<int> questionsshowed;
+    public List<int> questionsfireshowed;
     private int nq;
+    public int gamemode = 0;
+    private bool creating = false;
+    private bool hardq = false;
 
     //Menus
     public GameObject Login_Fail;
@@ -27,10 +31,19 @@ public class BadeDatosHandler : MonoBehaviour
     public GameObject UserDoesNotExist;
     public GameObject Add_Success;
     public GameObject Erase_Success;
+    public GameObject PreguntaDificl;
+    public GameObject You_Win;
+    public GameObject You_Loose;
+    public GameObject FIRE;
     //Juego
     public GameObject panelCORRECT;
     public GameObject panelWRONG;
-    
+    public List<Player> listofP;
+    public Player P1 = new Player();
+    public Player P2 = new Player();
+    public Player P3 = new Player();
+    public Player P4 = new Player();
+
     //Naves
     private Vector3 maxenemyrandomspaceBig = new Vector3(0, 500, 0);
     private Vector3 minenemyrandomspaceBig = new Vector3(0,500,0);
@@ -70,6 +83,19 @@ public class BadeDatosHandler : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
+            PreguntaDificl.SetActive(false);
+            You_Loose.SetActive(false);
+            You_Win.SetActive(false);
+            FIRE.SetActive(false);
+            P1 = new Player();
+            P2 = new Player();
+           
+            if (gamemode == 1)
+            {
+                P3 = new Player();
+                P4 = new Player();
+            }
+
             enemyspaceship = GameObject.FindGameObjectWithTag("Enemy");
             enemyspaceship.SetActive(false);
             alyspaceship= GameObject.FindGameObjectWithTag("Aly");
@@ -79,6 +105,7 @@ public class BadeDatosHandler : MonoBehaviour
             panelCORRECT = GameObject.FindGameObjectWithTag("CORRECT");
             panelWRONG = GameObject.FindGameObjectWithTag("WRONG");
             ClosePanel();
+            
         }
 
 
@@ -121,8 +148,8 @@ public class BadeDatosHandler : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Ranking")
         {
             GameObject[] labels = GameObject.FindGameObjectsWithTag("Lab");
-            labels[0].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaAmigosHab.png");
-            labels[1].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaGlobalDis.png");
+            labels[1].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaAmigosHab.png");
+            labels[0].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaGlobalDis.png");
             
         }
     }
@@ -140,8 +167,8 @@ public class BadeDatosHandler : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Ranking")
         {
             GameObject[] labels = GameObject.FindGameObjectsWithTag("Lab");
-            labels[0].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaAmigosDis.png");
-            labels[1].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaGlobalHab.png");
+            labels[1].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaAmigosDis.png");
+            labels[0].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaGlobalHab.png");
 
         }
     }
@@ -270,35 +297,52 @@ public class BadeDatosHandler : MonoBehaviour
 
     public void ShowQuestion()
     {
-        nq = Random.Range(0, listofnormalquestions.Count);
         if (questionsshowed.Count != listofnormalquestions.Count)
         {
-            while (questionsshowed.Contains(nq))
-            {
-                nq = Random.Range(0, listofnormalquestions.Count);
-            }
-            questionsshowed.Add(nq);
-
-
             question = GameObject.FindGameObjectWithTag("Question");
             answers = GameObject.FindGameObjectsWithTag("Answers");
 
             int[] options = new int[4];
 
             int index = Random.Range(0, 4);
-            for (int i= 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 options[i] = index;
-                if (index < 3) index++; else index=0;
+                if (index < 3) index++; else index = 0;
             }
 
+            if ((P1.aciertos +1) % 5 != 0)
+            {
+                PreguntaDificl.SetActive(false);
+                do { nq = Random.Range(0, listofnormalquestions.Count); }
+                while (questionsshowed.Contains(nq));
+                questionsshowed.Add(nq);
 
-            answers[options[0]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerA;
-            answers[options[1]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerB;
-            answers[options[2]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerC;
-            answers[options[3]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerCorrect;
+                answers[options[0]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerA;
+                answers[options[1]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerB;
+                answers[options[2]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerC;
+                answers[options[3]].GetComponentInChildren<Text>().text = listofnormalquestions[nq].answerCorrect;
 
-            question.GetComponent<Text>().text = listofnormalquestions[nq].question;
+                question.GetComponent<Text>().text = listofnormalquestions[nq].question;
+
+            }
+            else
+            {
+                PreguntaDificl.SetActive(true);
+                do { nq = Random.Range(0, listoffirequestions.Count); }
+                while (questionsfireshowed.Contains(nq));
+                questionsfireshowed.Add(nq);
+
+                answers[options[0]].GetComponentInChildren<Text>().text = listoffirequestions[nq].answerA;
+                answers[options[1]].GetComponentInChildren<Text>().text = listoffirequestions[nq].answerB;
+                answers[options[2]].GetComponentInChildren<Text>().text = listoffirequestions[nq].answerC;
+                answers[options[3]].GetComponentInChildren<Text>().text = listoffirequestions[nq].answerCorrect;
+
+                question.GetComponent<Text>().text = listoffirequestions[nq].question;
+
+                hardq = true;
+            }
+
         }
         else
         {
@@ -326,51 +370,85 @@ public class BadeDatosHandler : MonoBehaviour
         }
         else
         {
+            P1.fallos++;
             Debug.Log("Respuesta INCORRECTA");
             button.GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/GameplayRespuestaErronea.png");
             Debug.Log(button.GetComponent<Image>().sprite);
             panelWRONG.SetActive(true);
+            if (hardq) hardq = false;
+            ShowQuestion();
         }
-        ShowQuestion();
+        
         StartCoroutine("Limpiar",button);
     }
 
     public void ShowCorrect(Button button)
-    { 
+    {
+        P1.aciertos++;
         Debug.Log("Respuesta CORRECTA");
         panelCORRECT.SetActive(true);
         button.GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/GameplayRespuestaCorrecta.png");
+        Addspaceship();
+        if (hardq) ActivateFireMode();
+        else
+        {
+            ShowQuestion();
+        }
 
-
-
-        Addspaceship(true);
     }
 
-    public void Addspaceship(bool aly)
+    public void Addspaceship()
     {
-        if (!aly)
+        GameObject nave;
+        P1.tropas++;
+        Vector3 spacepointmin = new Vector3(Random.Range(minalyrandomspaceSmall.x, maxalyrandomspaceSmall.x), Random.Range(minalyrandomspaceSmall.y, maxalyrandomspaceSmall.y), 0);
+        nave = Instantiate(alyspaceship, spacepointmin, transform.rotation, GameObject.FindGameObjectWithTag("MinMap").transform);
+        nave.SetActive(true);
+        Vector3 spacepointmax = new Vector3(Random.Range(minalyrandomspaceBig.x, maxalyrandomspaceBig.x), Random.Range(minalyrandomspaceBig.y, maxalyrandomspaceBig.y), 0);
+        nave = Instantiate(alyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
+        nave.SetActive(true);
+        nave.transform.Rotate(new Vector3(90, 0, 0));
+    }
+
+    public void ActivateFireMode()
+    {
+        foreach(GameObject b in answers)
         {
-            //Vector3 spacepoint = new Vector3(Random.Range(maxenemyrandomspaceBig.x,minenemyrandomspaceBig.x),Random.Range(maxenemyrandomspaceBig.y,minenemyrandomspaceBig.y),0);
-            Vector3 spacepointmin = new Vector3(Random.Range(minenemyrandomspaceSmall.x, maxenemyrandomspaceSmall.x), Random.Range(minenemyrandomspaceSmall.y, maxenemyrandomspaceSmall.y), 0);
-            Instantiate(enemyspaceship, spacepointmin, transform.rotation, GameObject.FindGameObjectWithTag("MinMap").transform).SetActive(true);
-            Vector3 spacepointmax = new Vector3(Random.Range(minenemyrandomspaceBig.x, maxenemyrandomspaceBig.x), Random.Range(minenemyrandomspaceBig.y, maxenemyrandomspaceBig.y), 0);
-            GameObject nave= Instantiate(enemyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
-            nave.SetActive(true);
-            nave.transform.Rotate(new Vector3(0, 0, 90));
-        
+            b.GetComponent<Button>().interactable = false;
+        }
+        question.SetActive(false);
+        FIRE.SetActive(true);
+    }
+
+    public void Fire()
+    {
+        P1.damage_done = -(P2.tropas -= P1.tropas);
+        if (P2.tropas <= 0)
+        {
+            You_Win.SetActive(true);
+            creating = true;
+            ShowStats();
         }
         else
         {
-            Vector3 spacepointmin = new Vector3(Random.Range(minalyrandomspaceSmall.x, maxalyrandomspaceSmall.x), Random.Range(minalyrandomspaceSmall.y, maxalyrandomspaceSmall.y), 0);
-            Instantiate(alyspaceship, spacepointmin, transform.rotation, GameObject.FindGameObjectWithTag("MinMap").transform).SetActive(true);
-            Vector3 spacepointmax = new Vector3(Random.Range(minalyrandomspaceBig.x, maxalyrandomspaceBig.x), Random.Range(minalyrandomspaceBig.y, maxalyrandomspaceBig.y), 0);
-            GameObject nave = Instantiate(alyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
-            nave.SetActive(true);
-            nave.transform.Rotate(new Vector3(90,0,0));
-            
+            question.SetActive(true);
+            FIRE.SetActive(false);
+            foreach (GameObject b in answers)
+            {
+                b.GetComponent<Button>().interactable = true;
+            }
+            ShowQuestion();
         }
     }
 
+    public void ShowStats()
+    {
+        GameObject[] stats = GameObject.FindGameObjectsWithTag("Stats");
+        stats[0].GetComponentInChildren<Text>().text = P1.aciertos.ToString();
+        stats[1].GetComponentInChildren<Text>().text = P1.fallos.ToString();
+        stats[2].GetComponentInChildren<Text>().text = P1.damage_done.ToString();
+        stats[3].GetComponentInChildren<Text>().text = P1.damage_received.ToString();
+    }
 
     public void ClosePanel()
     {
@@ -384,4 +462,29 @@ public class BadeDatosHandler : MonoBehaviour
         button.GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/GameplayRespuesta.png");
         ClosePanel();
     }
+
+    IEnumerator IA()
+    {
+        creating = true;
+        yield return new WaitForSeconds(2);
+        GameObject nave;
+        P2.tropas++;
+        Vector3 spacepointmin = new Vector3(Random.Range(minenemyrandomspaceSmall.x, maxenemyrandomspaceSmall.x), Random.Range(minenemyrandomspaceSmall.y, maxenemyrandomspaceSmall.y), 0);
+        nave = Instantiate(enemyspaceship, spacepointmin, transform.rotation, GameObject.FindGameObjectWithTag("MinMap").transform);
+        nave.SetActive(true);
+        Vector3 spacepointmax = new Vector3(Random.Range(minenemyrandomspaceBig.x, maxenemyrandomspaceBig.x), Random.Range(minenemyrandomspaceBig.y, maxenemyrandomspaceBig.y), 0);
+        nave= Instantiate(enemyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
+        nave.SetActive(true);
+        nave.transform.Rotate(new Vector3(0, 0, 90));
+        creating = false;
+    }
+
+    private void Update()
+    {
+        if (creating)
+        {
+            StartCoroutine("IA");
+        }
+    }
+
 }

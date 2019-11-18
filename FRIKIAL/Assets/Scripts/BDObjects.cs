@@ -38,3 +38,21 @@ public class BaseDatos
     public List<Question> ListOfNormalQuestions;
     public List<Question> ListOfFireQuestions;
 }
+
+public class Player
+{
+    public int tropas;
+    public List<GameObject> listoftroups;
+    public int aciertos;
+    public int fallos;
+    public int damage_done;
+    public int damage_received;
+    public Player()
+    {
+        tropas = aciertos = fallos = damage_done = damage_received = 0;
+    }
+    public void AddTroup(GameObject obj)
+    {
+        listoftroups.Add(obj);
+    }
+}

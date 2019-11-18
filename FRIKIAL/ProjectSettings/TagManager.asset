@@ -16,6 +16,7 @@ TagManager:
   - Aly
   - MinMap
   - MaxMap
+  - Stats
   layers:
   - Default
   - TransparentFX
