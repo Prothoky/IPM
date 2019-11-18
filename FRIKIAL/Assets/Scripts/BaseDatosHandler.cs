@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 
 
-public class BadeDatosHandler : MonoBehaviour
+public class BaseDatosHandler : MonoBehaviour
 {
     public BaseDatos bd;
     public List<User> listofplayers;
@@ -24,6 +24,7 @@ public class BadeDatosHandler : MonoBehaviour
     public int gamemode = 0;
     private bool hardq = false;
     private bool creating = false;
+    private int firetime = 0;
 
     //Menus
     public GameObject Login_Fail;
@@ -67,9 +68,11 @@ public class BadeDatosHandler : MonoBehaviour
         listofplayers = bd.ListOfPlayers;
         listofnormalquestions = bd.ListOfNormalQuestions;
         listoffirequestions = bd.ListOfFireQuestions;
+        creating = true;
 
-        if(SceneManager.GetActiveScene().name == "LoginScene") {
+        if (SceneManager.GetActiveScene().name == "LoginScene") {
             inputs = GameObject.FindGameObjectsWithTag("Inputs");
+            
         }
         if (SceneManager.GetActiveScene().name == "Friends" || SceneManager.GetActiveScene().name == "Ranking")
         {
@@ -82,6 +85,7 @@ public class BadeDatosHandler : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
+            creating = false;
             PreguntaDificl.SetActive(false);
             You_Loose.SetActive(false);
             You_Win.SetActive(false);
@@ -309,8 +313,8 @@ public class BadeDatosHandler : MonoBehaviour
         }
         if (questionsshowed.Count != listofnormalquestions.Count)
         {
-
-            if (P1.aciertos%5 == 0)
+            Debug.Log(firetime);
+            if (firetime>5)
             {
                 PreguntaDificl.SetActive(true);
                 do { nq = Random.Range(0, listoffirequestions.Count); }
@@ -323,7 +327,7 @@ public class BadeDatosHandler : MonoBehaviour
                 answers[options[3]].GetComponentInChildren<Text>().text = listoffirequestions[nq].answerCorrect;
 
                 question.GetComponent<Text>().text = listoffirequestions[nq].question;
-
+                firetime = 0;
                 hardq = true;
             }
             else
@@ -347,6 +351,7 @@ public class BadeDatosHandler : MonoBehaviour
         {
             Debug.Log("FIN DE BD DE PREGUNTAS");
 
+            PreguntaDificl.SetActive(true);
             answers[options[0]].GetComponentInChildren<Text>().text = listofnormalquestions[0].answerA;
             answers[options[1]].GetComponentInChildren<Text>().text = listofnormalquestions[0].answerB;
             answers[options[2]].GetComponentInChildren<Text>().text = listofnormalquestions[0].answerC;
@@ -354,6 +359,7 @@ public class BadeDatosHandler : MonoBehaviour
 
             question.GetComponent<Text>().text = listofnormalquestions[0].question;
             nq = 0;
+            hardq = true;
         }
     }
 
@@ -363,7 +369,7 @@ public class BadeDatosHandler : MonoBehaviour
 
             ShowCorrect(button);
         }
-        else if (button.GetComponentInChildren<Text>().text == listofnormalquestions[nq].answerCorrect)
+        else if(button.GetComponentInChildren<Text>().text == listofnormalquestions[nq].answerCorrect)
         {
             ShowCorrect(button);
         }
@@ -377,10 +383,10 @@ public class BadeDatosHandler : MonoBehaviour
                 hardq = false;
                 FIRE.SetActive(false);
                 PreguntaDificl.SetActive(false);
+                firetime = 0;
             }
             ShowQuestion();
         }
-        
         StartCoroutine("Limpiar",button);
     }
 
@@ -388,10 +394,14 @@ public class BadeDatosHandler : MonoBehaviour
     {
         P1.aciertos++;
         P1.tropas++;
+        firetime++;
         panelCORRECT.SetActive(true);
         button.GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/GameplayRespuestaCorrecta.png");
         Addspaceship();
-        if (hardq) ActivateFireMode();
+        if (hardq)
+        {
+            ActivateFireMode();
+        }
         else
         {
             ShowQuestion();
