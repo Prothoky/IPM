@@ -41,19 +41,12 @@
             "puntuacion": 1000,
             "color": "Red",
             "friend": true
-        },
-        {
-            "nombre": "",
-            "psw": "",
-            "puntuacion": 0,
-            "color": "White",
-            "friend": false
         }
     ],
     "ListOfNormalQuestions": [
         {
             "question": "¿Es la vida un juego o alguien juega con nuestra vida?",
-            "answerCorrect": "NO LO SE",
+            "answerCorrect": "CORRECTO",
             "answerA": "SI",
             "answerB": "NO",
             "answerC": "PUEDE"
