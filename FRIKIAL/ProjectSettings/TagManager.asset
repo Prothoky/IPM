@@ -19,6 +19,7 @@ TagManager:
   - Stats
   - EnemyMin
   - EnemyMax
+  - test
   layers:
   - Default
   - TransparentFX

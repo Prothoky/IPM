@@ -1,0 +1,302 @@
+{
+    "ListOfPlayers": [
+        {
+            "nombre": "Player6",
+            "psw": "",
+            "puntuacion": 6000,
+            "color": "White",
+            "friend": false
+        },
+        {
+            "nombre": "Player5",
+            "psw": "",
+            "puntuacion": 5000,
+            "color": "Black",
+            "friend": true
+        },
+        {
+            "nombre": "Player4",
+            "psw": "",
+            "puntuacion": 4000,
+            "color": "Yellow",
+            "friend": false
+        },
+        {
+            "nombre": "Player3",
+            "psw": "",
+            "puntuacion": 3000,
+            "color": "Green",
+            "friend": true
+        },
+        {
+            "nombre": "Player2",
+            "psw": "",
+            "puntuacion": 2000,
+            "color": "Blue",
+            "friend": false
+        },
+        {
+            "nombre": "Player1",
+            "psw": "",
+            "puntuacion": 1000,
+            "color": "Red",
+            "friend": true
+        }
+    ],
+    "ListOfNormalQuestions": [
+        {
+            "question": "¿Es la vida un juego o alguien juega con nuestra vida?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 0?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 1?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 2?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 3?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 4?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 5?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 6?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 7?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 8?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 9?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 10?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 11?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 12?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 14?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 15?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 16?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 17?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 18?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 19?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 20?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 21?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 22?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 23?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 24?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Pregunta 25?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "SI",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        }
+    ],
+    "ListOfFireQuestions": [
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        },
+        {
+            "question": "¿Esta pregunta es de disparar?",
+            "answerCorrect": "CORRECTO",
+            "answerA": "NO LO SE",
+            "answerB": "NO",
+            "answerC": "PUEDE"
+        }
+    ]
+}

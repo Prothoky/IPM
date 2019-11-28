@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor;
+using LitJson;
 
 
 public class BaseDatosHandler : MonoBehaviour
@@ -64,8 +64,12 @@ public class BaseDatosHandler : MonoBehaviour
 
     void Start()
     {
-        string datosglobal = File.ReadAllText(Application.dataPath + "/Resources/Global.json");
-        bd = JsonUtility.FromJson<BaseDatos>(datosglobal);
+        //string datosglobal = File.ReadAllText(Application.dataPath + "/Resources/Global.json");
+        //File.WriteAllText(Application.dataPath + "/Resources/texto.txt", datosglobal);
+        //bd = JsonUtility.FromJson<BaseDatos>(datosglobal);
+
+        J datosglobal = new J();
+        bd = JsonUtility.FromJson<BaseDatos>(J.s);
         listofplayers = bd.ListOfPlayers;
         listofnormalquestions = bd.ListOfNormalQuestions;
         listoffirequestions = bd.ListOfFireQuestions;
@@ -152,8 +156,8 @@ public class BaseDatosHandler : MonoBehaviour
         if(SceneManager.GetActiveScene().name == "Ranking")
         {
             GameObject[] labels = GameObject.FindGameObjectsWithTag("Lab");
-            labels[1].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaAmigosHab.png");
-            labels[0].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaGlobalDis.png");
+            //labels[1].GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Labs/PestañaAmigosHab.png");
+            //labels[0].GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Labs/PestañaGlobalDis.png");
             
         }
     }
@@ -171,8 +175,8 @@ public class BaseDatosHandler : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Ranking")
         {
             GameObject[] labels = GameObject.FindGameObjectsWithTag("Lab");
-            labels[1].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/PestañaAmigosDis.png");
-            labels[0].GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/pestañaGlobalHab.png");
+            //labels[1].GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Labs/PestañaAmigosDis.png");
+            //labels[0].GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Labs/pestañaGlobalHab.png");
 
         }
     }
@@ -303,8 +307,8 @@ public class BaseDatosHandler : MonoBehaviour
     public void UpdateJson()
     {
         bd.ListOfPlayers = listofplayers;
-        string json = JsonUtility.ToJson(bd, true);
-        File.WriteAllText(Application.dataPath + "/Resources/Global.json", json);
+        //string json = JsonUtility.ToJson(bd, true);
+        //File.WriteAllText(Application.dataPath + "/Resources/Global.json", json);
     }
 
     public void ShowQuestion()
@@ -385,7 +389,7 @@ public class BaseDatosHandler : MonoBehaviour
         else
         {
             P1.fallos++;
-            button.GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/GameplayRespuestaErronea.png");
+            //button.GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Buttons/GameplayRespuestaErronea.png");
             panelWRONG.SetActive(true);
             if (hardq)
             {
@@ -405,7 +409,7 @@ public class BaseDatosHandler : MonoBehaviour
         P1.tropas++;
         firetime++;
         panelCORRECT.SetActive(true);
-        button.GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/GameplayRespuestaCorrecta.png");
+        //button.GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Buttons/GameplayRespuestaCorrecta.png");
         Addspaceship();
         if (hardq)
         {
@@ -488,26 +492,29 @@ public class BaseDatosHandler : MonoBehaviour
     IEnumerator Limpiar(Button button)
     {
         yield return new WaitForSeconds(1);
-        button.GetComponent<Image>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Images/Buttons/GameplayRespuesta.png");
+        //button.GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Buttons/GameplayRespuesta.png");
         ClosePanel();
     }
 
     IEnumerator IA()
     {
-        creating = true;
-        yield return new WaitForSeconds(1);
-        GameObject nave;
-        P2.tropas++;
-        Vector3 spacepointmin = new Vector3(Random.Range(minenemyrandomspaceSmall.x, maxenemyrandomspaceSmall.x), Random.Range(minenemyrandomspaceSmall.y, maxenemyrandomspaceSmall.y), 0);
-        nave = Instantiate(enemyspaceship, spacepointmin, transform.rotation, GameObject.FindGameObjectWithTag("MinMap").transform);
-        nave.SetActive(true);
-        nave.tag = "EnemyMin";
-        Vector3 spacepointmax = new Vector3(Random.Range(minenemyrandomspaceBig.x, maxenemyrandomspaceBig.x), Random.Range(minenemyrandomspaceBig.y, maxenemyrandomspaceBig.y), 0);
-        nave= Instantiate(enemyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
-        nave.SetActive(true);
-        nave.transform.Rotate(new Vector3(0, 0, 90));
-        nave.tag = "EnemyMax";
-        creating = false;
+        if (SceneManager.GetActiveScene().name == "GameScene")
+        {
+            creating = true;
+            yield return new WaitForSeconds(1);
+            GameObject nave;
+            P2.tropas++;
+            Vector3 spacepointmin = new Vector3(Random.Range(minenemyrandomspaceSmall.x, maxenemyrandomspaceSmall.x), Random.Range(minenemyrandomspaceSmall.y, maxenemyrandomspaceSmall.y), 0);
+            nave = Instantiate(enemyspaceship, spacepointmin, transform.rotation, GameObject.FindGameObjectWithTag("MinMap").transform);
+            nave.SetActive(true);
+            nave.tag = "EnemyMin";
+            Vector3 spacepointmax = new Vector3(Random.Range(minenemyrandomspaceBig.x, maxenemyrandomspaceBig.x), Random.Range(minenemyrandomspaceBig.y, maxenemyrandomspaceBig.y), 0);
+            nave= Instantiate(enemyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
+            nave.SetActive(true);
+            nave.transform.Rotate(new Vector3(0, 0, 90));
+            nave.tag = "EnemyMax";
+            creating = false;
+        }
     }
 
     void Update()
