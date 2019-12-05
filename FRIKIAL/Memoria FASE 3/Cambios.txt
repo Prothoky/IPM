@@ -1,0 +1,49 @@
+*IPM Cambios para 3º entrega*
+Cambio paleta (Sugerencia entregas anteriores):
+	· Utilizando la herramienta web de colourlovers.com realizamos una primera 
+		paleta de color seleccionando el azul para el fondo y dos colores 
+		que contrasten con este y entre si para los aliados y los enemigos.
+		Ademas seleccionamos otros dos colores que contrastan con el fondo
+		para resaltar algunas funciones en la interfaz, de modo que salvo 
+		el color del fondo todos los demás son muy próximos al amarillo y 
+		el rojo.
+	· Utilizamos Palettom.com para obtener variaciones de saturación e 
+		intensidad de cada color de la paleta, reduciendo un poco la 
+		simplicidad de los diseños de los elementos que componen la 
+		interfaz.
+	· Utilizamos la herramienta Color tester de color.mediaandme.be para 
+		comprobar que efectivamente los colores de la paleta contrastan lo 
+		suficiente entre sí. Los colores que menos contrastan entre si nunca
+		se solapan entre si, de modo que no supondrá un problema.
+	· Esta última herramienta permite tambien una simulacion aproximada de 
+		varios tipos de daltonismo.
+		Salvo en el caso de daltonismo más agudo, los fondos, aliados y 
+		enemigos son claramente diferienciables entre si. Los dos colores 
+		que más problemas darían serían el verde y naranja, empleados para 
+		resaltar algunos elementos en los menús por encima de otros, 
+		viendose ambos de forma muy similar. 
+		El naranja ademas en algunos grados de daltonismo no se diferencia 
+		lo suficiente del amarillo, siendo menos perceptible la advertencia 
+		de que un aliado ha sufrido daño.
+
+Cambio (Retroalimentación usuarios):
+	AFECTAN AL GAMEPLAY
+		· Colores del botón de maximizar o minimizar radar:
+			- Problema: El color oscuro del interior del botón confundía
+				al usuario, a quien daba la sensación de que el
+				botón estaba deshabilitado.
+			- Solución: Cambiar los colores oscuros del botón por los
+				claros del texto y el borde del botón, y viceversa,
+				resaltando más y no dando la erronea impresion de
+				que está deshabilitado.
+		
+		· No esta suficientemente claro cuando se acierta o falla una pregunta.
+			- No se esta del todo seguro cuando se acierta o falla una pregunta.		
+			- Preparar pantalla de color naranja para cuando se falle y verde 
+				para cuando se acierte. Probar con estilo de capa "tono".
+
+	MERAMENTE ESTETICOS
+		· Eliminar las lineas de pincel de los hexagonos.	
+			- Problema: Distrae, parece que tendra algun significado, 
+				y no es asi.
+			- Solucion: Borrar las lineas de pincel.	
