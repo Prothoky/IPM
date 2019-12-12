@@ -20,6 +20,9 @@ TagManager:
   - EnemyMin
   - EnemyMax
   - test
+  - Counter
+  - BGCORRECT
+  - BGWRONG
   layers:
   - Default
   - TransparentFX

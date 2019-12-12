@@ -813,7 +813,9 @@ MonoBehaviour:
   You_Loose: {fileID: 0}
   FIRE: {fileID: 0}
   panelCORRECT: {fileID: 0}
+  backgroundCORRECT: {fileID: 0}
   panelWRONG: {fileID: 0}
+  backgroundWRONG: {fileID: 0}
 --- !u!1 &453790581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,7 +1804,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: c5c4b5ae245fcae409a8a57e69ab2cb2, type: 3}
     m_FontSize: 78
     m_FontStyle: 2
     m_BestFit: 0
@@ -2311,7 +2313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ACEPTAR
+  m_Text: aceptar
 --- !u!222 &1403273510
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2568,7 +2570,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Nombre de usuario ya registrado
+  m_Text: nombre de usuario ya registrado
 --- !u!222 &1748967373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2707,7 +2709,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 6bc35f3b8a927e1448f22edce614d9b3, type: 3}
     m_FontSize: 78
     m_FontStyle: 0
     m_BestFit: 0

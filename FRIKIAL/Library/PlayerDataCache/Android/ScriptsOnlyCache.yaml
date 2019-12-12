@@ -19,7 +19,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -816,7 +815,7 @@ ScriptsOnlyBuild:
     className: TMP_TextSelector_B
   - hash:
       serializedVersion: 2
-      Hash: ab5e52de421dae2aa31056e31cc39e09
+      Hash: af934c3882d634c68594a3180b141145
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BaseDatosHandler
@@ -1057,4 +1056,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Ranking.unity
   - Assets/Scenes/GameScene.unity
   - Assets/Scenes/SelectGameMode.unity
-  playerPath: C:/Users/Proth/Documents/IPMU/FRIKIAL/Builds/FRIKIAL02.apk
+  playerPath: C:/Users/Proth/Documents/IPMU/FRIKIAL/Builds/FRIKIAL03.apk

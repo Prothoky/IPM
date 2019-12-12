@@ -40,7 +40,9 @@ public class BaseDatosHandler : MonoBehaviour
     public GameObject FIRE;
     //Juego
     public GameObject panelCORRECT;
+    public GameObject backgroundCORRECT;
     public GameObject panelWRONG;
+    public GameObject backgroundWRONG;
     public List<Player> listofP;
     public Player P1 = new Player();
     public Player P2 = new Player();
@@ -50,14 +52,14 @@ public class BaseDatosHandler : MonoBehaviour
     //Naves
     private Vector3 maxenemyrandomspaceBig = new Vector3(1000, 3500, 0);
     private Vector3 minenemyrandomspaceBig = new Vector3(100,3000,0);
-    private Vector3 maxenemyrandomspaceSmall = new Vector3(1000, 1575, 0);
-    private Vector3 minenemyrandomspaceSmall = new Vector3(600, 1150, 0);
-
-
-    private Vector3 maxalyrandomspaceBig = new Vector3(1000, 2800, 0);
     private Vector3 minalyrandomspaceBig = new Vector3(100, 2300, 0);
-    private Vector3 maxalyrandomspaceSmall = new Vector3(500, 1575, 0);
-    private Vector3 minalyrandomspaceSmall = new Vector3(75, 1150, 0);
+    private Vector3 maxalyrandomspaceBig = new Vector3(1000, 2800, 0);
+
+
+    //private Vector3 minenemyrandomspaceSmall = new Vector3(600, 1150, 0);
+    //private Vector3 maxenemyrandomspaceSmall = new Vector3(1000, 1575, 0);
+    //private Vector3 maxalyrandomspaceSmall = new Vector3(500, 1575, 0);
+    //private Vector3 minalyrandomspaceSmall = new Vector3(75, 1150, 0);
 
     private GameObject enemyspaceship;
     private GameObject alyspaceship;
@@ -111,7 +113,9 @@ public class BaseDatosHandler : MonoBehaviour
 
             ShowQuestion();
             panelCORRECT = GameObject.FindGameObjectWithTag("CORRECT");
+            backgroundCORRECT = GameObject.FindGameObjectWithTag("BGCORRECT");
             panelWRONG = GameObject.FindGameObjectWithTag("WRONG");
+            backgroundWRONG = GameObject.FindGameObjectWithTag("BGWRONG");
             ClosePanel();
             
         }
@@ -391,6 +395,7 @@ public class BaseDatosHandler : MonoBehaviour
             P1.fallos++;
             //button.GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Buttons/GameplayRespuestaErronea.png");
             panelWRONG.SetActive(true);
+            backgroundWRONG.SetActive(true);
             if (hardq)
             {
                 hardq = false;
@@ -409,6 +414,7 @@ public class BaseDatosHandler : MonoBehaviour
         P1.tropas++;
         firetime++;
         panelCORRECT.SetActive(true);
+        backgroundCORRECT.SetActive(true);
         //button.GetComponent<Image>().sprite = Resources.Load<Sprite>(   Application.streamingAssetsPath + "/Buttons/GameplayRespuestaCorrecta.png");
         Addspaceship();
         if (hardq)
@@ -425,9 +431,7 @@ public class BaseDatosHandler : MonoBehaviour
     public void Addspaceship()
     {
         GameObject nave;
-        Vector3 spacepointmin = new Vector3(Random.Range(minalyrandomspaceSmall.x, maxalyrandomspaceSmall.x), Random.Range(minalyrandomspaceSmall.y, maxalyrandomspaceSmall.y), 0);
-        nave = Instantiate(alyspaceship, spacepointmin, transform.rotation, GameObject.FindGameObjectWithTag("MinMap").transform);
-        nave.SetActive(true);
+        UpdateCounters();
         Vector3 spacepointmax = new Vector3(Random.Range(minalyrandomspaceBig.x, maxalyrandomspaceBig.x), Random.Range(minalyrandomspaceBig.y, maxalyrandomspaceBig.y), 0);
         nave = Instantiate(alyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
         nave.SetActive(true);
@@ -486,7 +490,9 @@ public class BaseDatosHandler : MonoBehaviour
     public void ClosePanel()
     {
         panelCORRECT.SetActive(false);
+        backgroundCORRECT.SetActive(false);
         panelWRONG.SetActive(false);
+        backgroundWRONG.SetActive(false);
     }
 
     IEnumerator Limpiar(Button button)
@@ -501,19 +507,32 @@ public class BaseDatosHandler : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
             creating = true;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(3);
             GameObject nave;
             P2.tropas++;
-            Vector3 spacepointmin = new Vector3(Random.Range(minenemyrandomspaceSmall.x, maxenemyrandomspaceSmall.x), Random.Range(minenemyrandomspaceSmall.y, maxenemyrandomspaceSmall.y), 0);
-            nave = Instantiate(enemyspaceship, spacepointmin, transform.rotation, GameObject.FindGameObjectWithTag("MinMap").transform);
-            nave.SetActive(true);
-            nave.tag = "EnemyMin";
+            UpdateCounters();
             Vector3 spacepointmax = new Vector3(Random.Range(minenemyrandomspaceBig.x, maxenemyrandomspaceBig.x), Random.Range(minenemyrandomspaceBig.y, maxenemyrandomspaceBig.y), 0);
             nave= Instantiate(enemyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
             nave.SetActive(true);
             nave.transform.Rotate(new Vector3(0, 0, 90));
             nave.tag = "EnemyMax";
             creating = false;
+        }
+    }
+
+    void UpdateCounters()
+    {
+        GameObject[] Counters = GameObject.FindGameObjectsWithTag("Counter");
+        foreach (GameObject counter in Counters)
+        {
+            if (counter.name == "ACounter")
+            {
+                counter.GetComponent<Text>().text = P1.tropas.ToString();
+            }
+            if (counter.name == "ECounter")
+            {
+                counter.GetComponent<Text>().text = P2.tropas.ToString();
+            }
         }
     }
 
