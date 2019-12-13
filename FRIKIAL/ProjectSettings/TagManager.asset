@@ -23,6 +23,7 @@ TagManager:
   - Counter
   - BGCORRECT
   - BGWRONG
+  - TUTO
   layers:
   - Default
   - TransparentFX

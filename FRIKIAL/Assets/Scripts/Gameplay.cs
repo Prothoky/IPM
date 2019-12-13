@@ -25,15 +25,10 @@ public class Gameplay : MonoBehaviour
         isMaxmap = !isMaxmap;
     }
 
-    void MoverMenu(Vector3 posInit, Vector3 posFin)
-    {
-        StartCoroutine(Mover(posInit,posFin));
-    }
-
     public void Button_map()
     {
         int signo = 1;
-        float posFinal=1938;
+        float posFinal=2960;
 
         if (!isMaxmap)
         {
@@ -41,8 +36,7 @@ public class Gameplay : MonoBehaviour
             posFinal = 0;
         }
 
-        MoverMenu(bigMapPanel.position,new Vector3(bigMapPanel.position.x,signo*posFinal,0));
-        
+        StartCoroutine(Mover(bigMapPanel.position,new Vector3(bigMapPanel.position.x,signo*posFinal,0)));
     }
             
 
