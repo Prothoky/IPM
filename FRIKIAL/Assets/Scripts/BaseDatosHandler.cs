@@ -334,7 +334,7 @@ public class BaseDatosHandler : MonoBehaviour
         }
         if (questionsshowed.Count != listofnormalquestions.Count)
         {
-            if (firetime>5)
+            if (firetime>2)
             {
                 PreguntaDificl.SetActive(true);
                 do { nq = Random.Range(0, listoffirequestions.Count); }
@@ -462,7 +462,6 @@ public class BaseDatosHandler : MonoBehaviour
         {
             for(int i = 0; i < daño; i++)
             {
-                GameObject.FindGameObjectWithTag("EnemyMin").SetActive(false);
                 GameObject.FindGameObjectWithTag("EnemyMax").SetActive(false);
             }
             foreach (GameObject b in answers)
@@ -473,6 +472,7 @@ public class BaseDatosHandler : MonoBehaviour
             FIRE.SetActive(false);
             PreguntaDificl.SetActive(false);
             hardq = false;
+            //Debug.Log("Entra");
             ShowQuestion();
         }
     }

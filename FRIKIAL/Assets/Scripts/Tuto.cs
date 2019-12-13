@@ -9,9 +9,13 @@ public class Tuto : MonoBehaviour
     void Start()
     {
         Paneles = GameObject.FindGameObjectsWithTag("TUTO");
-        Paneles[1].SetActive(false);
-        Paneles[2].SetActive(false);
-       
+        foreach(GameObject panel in Paneles)
+        {
+            if(panel.name != "TUTO_1")
+            {
+                panel.SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -22,23 +26,47 @@ public class Tuto : MonoBehaviour
 
     public void ChangeTuto_1()
     {
-        Paneles[0].SetActive(true);
-        Paneles[1].SetActive(false);
-        Paneles[2].SetActive(false);
+        foreach (GameObject panel in Paneles)
+        {
+            if (panel.name != "TUTO_1")
+            {
+                panel.SetActive(false);
+            }
+            else
+            {
+                panel.SetActive(true);
+            }
+        }
     }
 
     public void ChangeTuto_2()
     {
-        Paneles[1].SetActive(true);
-        Paneles[0].SetActive(false);
-        Paneles[2].SetActive(false);
+        foreach (GameObject panel in Paneles)
+        {
+            if (panel.name != "TUTO_2")
+            {
+                panel.SetActive(false);
+            }
+            else
+            {
+                panel.SetActive(true);
+            }
+        }
     }
 
     public void ChangeTuto_3()
     {
-        Paneles[2].SetActive(true);
-        Paneles[0].SetActive(false);
-        Paneles[1].SetActive(false);
+        foreach (GameObject panel in Paneles)
+        {
+            if (panel.name != "TUTO_3")
+            {
+                panel.SetActive(false);
+            }
+            else
+            {
+                panel.SetActive(true);
+            }
+        }
     }
 
 }
