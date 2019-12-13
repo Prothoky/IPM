@@ -50,6 +50,8 @@ public class BaseDatosHandler : MonoBehaviour
     public Player P4 = new Player();
 
     //Naves
+
+    private GameObject BigPanel;
     private Vector3 maxenemyrandomspaceBig = new Vector3(1000, 3500, 0);
     private Vector3 minenemyrandomspaceBig = new Vector3(100,3000,0);
     private Vector3 minalyrandomspaceBig = new Vector3(100, 2300, 0);
@@ -110,6 +112,8 @@ public class BaseDatosHandler : MonoBehaviour
             enemyspaceship.SetActive(false);
             alyspaceship= GameObject.FindGameObjectWithTag("Aly");
             alyspaceship.SetActive(false);
+
+            BigPanel = GameObject.FindGameObjectWithTag("MaxMap");
 
             ShowQuestion();
             panelCORRECT = GameObject.FindGameObjectWithTag("CORRECT");
@@ -330,7 +334,6 @@ public class BaseDatosHandler : MonoBehaviour
         }
         if (questionsshowed.Count != listofnormalquestions.Count)
         {
-            Debug.Log(firetime);
             if (firetime>5)
             {
                 PreguntaDificl.SetActive(true);
@@ -430,12 +433,8 @@ public class BaseDatosHandler : MonoBehaviour
 
     public void Addspaceship()
     {
-        GameObject nave;
+        Drawship("aly");
         UpdateCounters();
-        Vector3 spacepointmax = new Vector3(Random.Range(minalyrandomspaceBig.x, maxalyrandomspaceBig.x), Random.Range(minalyrandomspaceBig.y, maxalyrandomspaceBig.y), 0);
-        nave = Instantiate(alyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
-        nave.SetActive(true);
-        nave.transform.Rotate(new Vector3(90, 0, 0));
     }
 
     public void ActivateFireMode()
@@ -508,15 +507,34 @@ public class BaseDatosHandler : MonoBehaviour
         {
             creating = true;
             yield return new WaitForSeconds(3);
-            GameObject nave;
             P2.tropas++;
             UpdateCounters();
-            Vector3 spacepointmax = new Vector3(Random.Range(minenemyrandomspaceBig.x, maxenemyrandomspaceBig.x), Random.Range(minenemyrandomspaceBig.y, maxenemyrandomspaceBig.y), 0);
-            nave= Instantiate(enemyspaceship, spacepointmax, transform.rotation, GameObject.FindGameObjectWithTag("MaxMap").transform);
+            Drawship("enemy");
+            creating = false;
+        }
+    }
+
+    void Drawship(string ente)
+    {
+        GameObject nave;
+        if (ente == "aly")
+        {
+            Vector3 spacepointmax = new Vector3(Random.Range(BigPanel.transform.position.x +100, BigPanel.transform.position.x + 1000), Random.Range(BigPanel.transform.position.y + 350, BigPanel.transform.position.y + 850), 0);
+            nave = Instantiate(alyspaceship, spacepointmax, transform.rotation,BigPanel.transform);
             nave.SetActive(true);
             nave.transform.Rotate(new Vector3(0, 0, 90));
+        }
+        else if(ente == "enemy"){
+
+            Vector3 spacepointmax = new Vector3(Random.Range(BigPanel.transform.position.x +100 , BigPanel.transform.position.x + 1000), Random.Range(BigPanel.transform.position.y + 1000, BigPanel.transform.position.y + 1550), 0);
+            nave = Instantiate(enemyspaceship, spacepointmax, transform.rotation, BigPanel.transform);
+            nave.SetActive(true);
+            nave.transform.Rotate(new Vector3(0, 0, -90));
             nave.tag = "EnemyMax";
-            creating = false;
+        }
+        else
+        {
+            Debug.Log("WTF THIS SHOULD NOT HAPPEN");
         }
     }
 
